@@ -18,6 +18,7 @@ public class AuthorizationTest {
 	public static void main(String[] args) throws InterruptedException {
 		Map<String,String> env = new HashMap<String, String>();
 		env.put("PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD","1");
+		env.put("PLAYWRIGHT_BROWSERS_PATH", "USERPROFILE\\pw-browsers");
 		
 				try {
 					Playwright playwright = Playwright.create(new Playwright.CreateOptions().setEnv(env));
