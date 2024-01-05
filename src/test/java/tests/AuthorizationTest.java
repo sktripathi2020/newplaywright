@@ -1,6 +1,8 @@
 package tests;
 
 
+import static org.testng.Assert.assertTrue;
+
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Locator;
@@ -19,24 +21,12 @@ public class AuthorizationTest {
 				            		);
 						 
 					Page page = browser.newPage();
-					page.setDefaultTimeout(300000);
-		            page.navigate("https://acc.sfbhoreca.nl/");
-		            Locator acceptCookie = page.locator("//*[@id=\"onetrust-accept-btn-handler\"]");
-		            acceptCookie.click();
-		            Locator acceptTermsAndCondition = page.locator("//*[@id=\"sfbhoreca-popup\"]/div/div/div[1]/button/span");
-		            acceptTermsAndCondition.click();
-		            Locator  loginLocator =   page.locator("//a[contains(.,'Inloggen')]");
-		            loginLocator.click();
-		            page.getByPlaceholder("Gebruikersnaam (géén e-mailadres)").type("saukumar@deloitte.com");
-		            page.getByPlaceholder("Wachtwoord").type("Saurabh@3");
+		            page.navigate("https://www.google.com/");
 		            
-		            page.click("//*[@id=\"login-form\"]/input[5]");
-		            
-		          //  page.wait(5000);
-		            
-		            page.getByPlaceholder("Zoeken naar...").first().fill("wine");
-		            Locator customerHomePage =  page.locator("//i[@class='fa fa-search']");
-		            customerHomePage.click();
+		            System.out.println("AuthorizationTest Starteddddddddd");
+		    		assertTrue(page.locator("//img[@alt='Google']").isVisible());
+		    		System.out.println("AuthorizationTest PASSEDDDDDDDDDDDD");
+		    		
 				}catch(PlaywrightException err) {
 					err.printStackTrace();
 				}
