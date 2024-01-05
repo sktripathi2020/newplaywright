@@ -43,9 +43,8 @@ public class PlaywrightFactory {
     	}
     	
     	Map<String,String> env = new HashMap<String, String>();
-		//env.put("PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD","1");
-		
-          threadLocalPlaywright.set(Playwright.create(new Playwright.CreateOptions().setEnv(env)));
+		env.put("PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD","1");
+          threadLocalPlaywright.set(Playwright.create());
       String browserName =  properties.getProperty("browser");
 
         switch (browserName.toLowerCase().trim()) {
