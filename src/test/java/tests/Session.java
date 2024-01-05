@@ -25,7 +25,7 @@ public class Session {
 
 		playwrightFactory = new PlaywrightFactory();
 		prop = playwrightFactory.initProperties();
-		page = playwrightFactory.initBrowser(prop, false);
+		page = playwrightFactory.initBrowser(prop, null);
 
 		Locator acceptCookie = page.locator(Constants.AcceptCookieStr);
 		acceptCookie.click();

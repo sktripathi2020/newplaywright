@@ -33,7 +33,7 @@ public class FavoritesNavTest {
 	public void setup() throws IOException {
 		playwrightFactory = new PlaywrightFactory();
 		prop = playwrightFactory.initProperties();
-		page = playwrightFactory.initBrowser(prop, false);
+		page = playwrightFactory.initBrowser(prop, null);
 		page.waitForLoadState(LoadState.LOAD);
 
 		favoritesNavPage = new FavoritesNavPage(page);
