@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class PlaywrightFactory {
@@ -39,7 +41,11 @@ public class PlaywrightFactory {
     	if(null ==headless) {
     		headless = Boolean.valueOf(properties.getProperty("headless"));
     	}
-          threadLocalPlaywright.set(Playwright.create());
+    	
+    	Map<String,String> env = new HashMap<String, String>();
+		env.put("PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD","1");
+		
+          threadLocalPlaywright.set(Playwright.create(new Playwright.CreateOptions().setEnv(env)));
       String browserName =  properties.getProperty("browser");
 
         switch (browserName.toLowerCase().trim()) {
