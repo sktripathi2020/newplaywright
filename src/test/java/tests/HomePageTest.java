@@ -26,7 +26,7 @@ public class HomePageTest  {
 	public void setup() throws IOException {
 	    playwrightFactory = new PlaywrightFactory();
 	    prop  = playwrightFactory.initProperties();
-	    page = playwrightFactory.initBrowser(prop,false);
+	    page = playwrightFactory.initBrowser(prop,true);
 	    page.waitForLoadState(LoadState.LOAD);
 	 }
 	 @AfterTest(alwaysRun = true)
