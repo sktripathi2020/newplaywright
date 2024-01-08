@@ -9,7 +9,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.options.LoadState;
 
 import factory.PlaywrightFactory;
@@ -24,10 +27,12 @@ public class HomePageTest  {
 
 	@BeforeTest
 	public void setup() throws IOException {
-	    playwrightFactory = new PlaywrightFactory();
-	    prop  = playwrightFactory.initProperties();
-	    page = playwrightFactory.initBrowser(prop,true);
-	    page.waitForLoadState(LoadState.LOAD);
+		 Playwright playwright = Playwright.create();
+		 Browser browser = playwright.chromium().launch(new LaunchOptions().setHeadless(true));
+		 
+	Page page = browser.newPage();
+   page.navigate("https://www.google.com/");
+   
 	 }
 	 @AfterTest(alwaysRun = true)
 	 public void tearDown(){
