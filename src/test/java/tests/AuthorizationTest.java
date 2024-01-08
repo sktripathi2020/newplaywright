@@ -15,7 +15,7 @@ public class AuthorizationTest {
 				try {
 					Playwright playwright = Playwright.create();
 						 Browser browser = playwright.webkit().launch(
-				            		new LaunchOptions().setHeadless(false)
+				            		new LaunchOptions().setHeadless(true)
 				            		);
 						 
 					Page page = browser.newPage();
