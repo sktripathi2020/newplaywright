@@ -10,9 +10,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.Browser.NewPageOptions;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.options.LoadState;
 
 import factory.PlaywrightFactory;
 
@@ -30,7 +32,8 @@ public class HomePageTest  {
 		 Browser browser = playwright.chromium().launch(new LaunchOptions().setHeadless(true));
 		 
 	page = browser.newPage();
-    page.navigate("https://www.google.com/");
+    page.navigate("https://playwright.dev/java/");
+    page.waitForLoadState(LoadState.LOAD);
    
 	 }
 	 @AfterTest(alwaysRun = true)
@@ -43,7 +46,7 @@ public class HomePageTest  {
 	@Test
 	public void homePageTitleTest() {
 		System.out.println("TEST Starteddddddddd");
-		assertTrue(page.locator("//img[@alt='Google']").isVisible());
+		assertTrue(page.locator("//h1[@class='hero__title heroTitle_ohkl']").isVisible());
 		System.out.println("TEST PASSEDDDDDDDDDDDD");
 	}
 }
