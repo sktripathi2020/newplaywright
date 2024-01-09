@@ -10,10 +10,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
-import com.microsoft.playwright.BrowserType.LaunchOptions;
-import com.microsoft.playwright.options.LoadState;
 
 import factory.PlaywrightFactory;
 
@@ -30,8 +29,8 @@ public class HomePageTest  {
 		 Playwright playwright = Playwright.create();
 		 Browser browser = playwright.chromium().launch(new LaunchOptions().setHeadless(true));
 		 
-	Page page = browser.newPage();
-   page.navigate("https://www.google.com/");
+	page = browser.newPage();
+    page.navigate("https://www.google.com/");
    
 	 }
 	 @AfterTest(alwaysRun = true)
