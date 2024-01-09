@@ -29,7 +29,7 @@ public class HomePageTest  {
 	@BeforeTest
 	public void setup() throws IOException {
 		 Playwright playwright = Playwright.create();
-		 Browser browser = playwright.chromium().launch(new LaunchOptions().setHeadless(true));
+		 Browser browser = playwright.webkit().launch();
 		 
 	page = browser.newPage();
     page.navigate("https://playwright.dev/java/");
