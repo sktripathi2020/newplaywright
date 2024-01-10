@@ -77,7 +77,7 @@ public class PlaceOrderPage {// BaseHomePage{
 		String productStr[] = page.locator("//p[@class='product-element-subtitle']").first().innerText().split(" ");
 		StringBuilder sb = new StringBuilder();
 		sb.append("//div[@id='product_sale_");
-		sb.append(productStr[1]);
+		sb.append(productStr[(productStr.length)-1]);
 		sb.append("']//a[@aria-label='plus']");
 		
 		logger.info("First Product XPath :" + sb.toString());
