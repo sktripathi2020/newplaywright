@@ -3,18 +3,17 @@ package tests.headerliks;
 import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
-import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
 
-import base.BaseTest;
 import base.Constants;
 import factory.PlaywrightFactory;
 import pages.SearchProductPage;
