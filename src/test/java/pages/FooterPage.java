@@ -154,7 +154,6 @@ public class FooterPage {
 			
 		}
 		
-		Thread.sleep(10000);
 		return flag;
 	}
 	private void submitMakeAnAppointmentAvailable(Page page,Boolean flag) {

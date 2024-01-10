@@ -60,7 +60,7 @@ public class PlaceOrderTest extends Session {
 		assertTrue(itemAdded);
 	}
 	@Test(priority = 2)
-	public void placeOrder() throws MalformedURLException {
+	public void placeOrder() throws MalformedURLException, InterruptedException {
 
 		//Fetch  the cart items
 		int itemsInCart = placeOrderPage.getCartItems();
@@ -73,10 +73,11 @@ public class PlaceOrderTest extends Session {
 				
 				if(placeOrderPage.navigateTODeliveryPage()) {
 					placeOrderPage.clickConfirmButton();
-					
 					if(placeOrderPage.navigateOrderConfirmatonPage()) {
 						placeOrderPage.clickOK();
 						assertTrue(placeOrderPage.navigateToHomePage());
+					}else {
+						//throw new MalformedURLException("Unable to navigate order-confirmation page");
 					}
 				}
 			}else {

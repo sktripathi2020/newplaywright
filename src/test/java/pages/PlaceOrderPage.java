@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.LoadState;
 
 import base.Constants;
 import tests.PlaceOrderTest;
@@ -63,7 +64,7 @@ public class PlaceOrderPage {// BaseHomePage{
 	}
 	
 	public int getCartItems() {
-		return Integer.valueOf(page.locator("//span[@class='filter-number']").last().innerText());
+		return Integer.valueOf(page.locator("//div[@class='top-nav-container']//a[@class='btShoppingCart']").last().innerText());
 	}
 
 	public int getTotalProductOnPLP() {
@@ -87,7 +88,6 @@ public class PlaceOrderPage {// BaseHomePage{
 	
 	public void doAddToCart(String xPath) {
 		page.locator(xPath).click();
-		page.setDefaultTimeout(2000);
 	}
 	
 	public void clickOnCartIcon() {
@@ -100,6 +100,7 @@ public class PlaceOrderPage {// BaseHomePage{
 	
 	public void clickConfirmButton() {
 		page.click("//a[@id='cta_button_delivery_confirm_order_button']");
+		page.reload();
 	}
 	
 	public void clickOK() {

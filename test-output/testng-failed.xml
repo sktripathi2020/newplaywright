@@ -3,61 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.FooterPageTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="isSecurityVisible"/>
-          <include name="clickContact"/>
-          <include name="isContactVisible"/>
-          <include name="isVacanciesVisible"/>
-          <include name="isFooterAvailable"/>
-          <include name="clickTAndC"/>
-          <include name="clickVACATURES"/>
-          <include name="isPrivacyAndCookiesVisible"/>
-          <include name="isMakeAnAppointmentAvailable"/>
-          <include name="clickAndSubmitMakeAnAppointmentAvailable"/>
-          <include name="setup"/>
-          <include name="clickPrivacyAndCookies"/>
-          <include name="isTandCVisible"/>
-          <include name="clickSecurity"/>
-        </methods>
-      </class> <!-- tests.FooterPageTest -->
       <class name="tests.PlaceOrderTest">
         <methods>
           <include name="captureSession"/>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="doAddToCart"/>
           <include name="placeOrder"/>
         </methods>
       </class> <!-- tests.PlaceOrderTest -->
-      <class name="tests.SearchProductTest">
-        <methods>
-          <include name="doSearch"/>
-          <include name="setup"/>
-          <include name="LoginTest"/>
-          <include name="searchPageUrlText"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- tests.SearchProductTest -->
-      <class name="tests.HomePageTest">
-        <methods>
-          <include name="setup"/>
-          <include name="homeLogoTest"/>
-          <include name="homePageTitleTest"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- tests.HomePageTest -->
-      <class name="tests.LoginPageTest">
-        <methods>
-          <include name="appLoginTest"/>
-          <include name="tearDown"/>
-          <include name="UserProfileVisiblTest"/>
-          <include name="setup"/>
-          <include name="loginPageNavigationTest"/>
-          <include name="loggedInPageTitleTest"/>
-        </methods>
-      </class> <!-- tests.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
