@@ -27,7 +27,7 @@ public class FooterPageTest {
 	public void setup() throws IOException, InterruptedException {
 	    playwrightFactory = new PlaywrightFactory();
 	    prop  = playwrightFactory.initProperties();
-	    page = playwrightFactory.initBrowser(prop,false);
+	    page = playwrightFactory.initBrowser(prop,null);
 	    footerPage = new FooterPage(page);
 	    page.waitForLoadState(LoadState.LOAD);
 	    page.waitForTimeout(5000);
