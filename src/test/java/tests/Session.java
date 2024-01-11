@@ -25,7 +25,7 @@ public class Session {
 
 		playwrightFactory = new PlaywrightFactory();
 		prop = playwrightFactory.initProperties();
-		page = playwrightFactory.initBrowser(prop, null);
+		page = playwrightFactory.initBrowser(prop, false);
 
 		Locator acceptCookie = page.locator(Constants.AcceptCookieStr);
 		acceptCookie.click();
@@ -33,8 +33,8 @@ public class Session {
 		acceptTermsAndCondition.click();
 
 		page.locator("//a[contains(.,'Inloggen')]").click();
-		page.getByPlaceholder("Gebruikersnaam (géén e-mailadres)").fill(Constants.USER_EMAIL);
-		page.getByPlaceholder("Wachtwoord").fill(Constants.USER_PASSWORD);
+		page.getByPlaceholder("Gebruikersnaam (géén e-mailadres)").fill(prop.getProperty(Constants.USER_EMAIL));
+		page.getByPlaceholder("Wachtwoord").fill(prop.getProperty(Constants.USER_PASSWORD));
 
 		page.click(Constants.LoginBtn);
 

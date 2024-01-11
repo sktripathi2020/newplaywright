@@ -4,8 +4,9 @@ public class Constants {
 
     public static final String HOME_PAGE_TITLE = "SFB Horeca";
     public static final String LOGIN_PAGE_TITLE = "Swinkels Family Brewers - Horeca";
-    public static final String USER_EMAIL = "saukumar@deloitte.com";
-    public static final String USER_PASSWORD = "Saurabh@3";
+    public static final String USER_EMAIL = "user.name";
+    public static final String USER_PASSWORD = "user.password";
+    
     
     public static final String AcceptCookieStr = "//*[@id=\"onetrust-accept-btn-handler\"]";
     public static final String TermAndConditionStr = "//*[@id=\"sfbhoreca-popup\"]/div/div/div[1]/button/span";

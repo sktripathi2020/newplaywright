@@ -50,13 +50,13 @@ public class FavoritesNavTest {
 
 	@Test(priority = 0)
 	public void doLogin() {
-		assertTrue(favoritesNavPage.doLogin(Constants.USER_EMAIL, Constants.USER_PASSWORD));
+		assertTrue(favoritesNavPage.doLogin(prop.getProperty(Constants.USER_EMAIL), prop.getProperty(Constants.USER_PASSWORD)));
 	}
 
 	//@Test(priority = 1)
 	public void clickFavoritesNav() {
 		if (!favoritesNavPage.isUserLoggedIn()) {
-			favoritesNavPage.doLogin(Constants.USER_EMAIL, Constants.USER_PASSWORD);
+			favoritesNavPage.doLogin(prop.getProperty(Constants.USER_EMAIL), prop.getProperty(Constants.USER_PASSWORD));
 		}
 		//favoritesNavPage.clickFavoritesNav();
 	}

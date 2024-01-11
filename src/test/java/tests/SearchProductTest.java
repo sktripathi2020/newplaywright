@@ -27,7 +27,7 @@ public class SearchProductTest{
 		prop = playwrightFactory.initProperties(); 
 		page = playwrightFactory.initBrowser(prop, false);
 		page.waitForLoadState(LoadState.LOAD);
-		searchProduct = new SearchProductPage(page);
+		searchProduct = new SearchProductPage(page,prop);
 	}
 
 	@AfterTest(alwaysRun = true)

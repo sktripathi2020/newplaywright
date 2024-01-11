@@ -51,7 +51,7 @@ public class ProductsNavTest{
 	  
 	@Test(priority = 0)
 	public void doLogin() {
-		assertTrue(productsPage.doLogin(Constants.USER_EMAIL,Constants.USER_PASSWORD));
+		assertTrue(productsPage.doLogin(prop.getProperty(Constants.USER_EMAIL), prop.getProperty(Constants.USER_PASSWORD)));
 	}
 	
 	@Test(priority = 1)

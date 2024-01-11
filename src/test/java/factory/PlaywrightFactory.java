@@ -35,7 +35,6 @@ public class PlaywrightFactory {
     }
 
     public Page initBrowser(Properties properties,Boolean headless) {
-//        playwright = Playwright.create();
     	if(null ==headless) {
     		headless = Boolean.valueOf(properties.getProperty("headless"));
     	}
@@ -44,21 +43,16 @@ public class PlaywrightFactory {
 
         switch (browserName.toLowerCase().trim()) {
             case "chromium":
-//              browser =  playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
                 threadLocalBrowser.set(getPlayWright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(headless)));
                 break;
 
             case "firefox":
-//             browser =   playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
                 threadLocalBrowser.set(getPlayWright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(headless)));
                 break;
             case "safari":
-//             browser =   playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
                 threadLocalBrowser.set(getPlayWright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(headless)));
                 break;
             case "chrome":
-//             browser =   playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome")
-//                        .setHeadless(false));
                 threadLocalBrowser.set(getPlayWright().chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome")
                         .setHeadless(headless)));
                 break;
@@ -69,16 +63,12 @@ public class PlaywrightFactory {
         threadLocalContext.set(getBrowser().newContext());
         threadLocalPage.set(getContext().newPage());
         getPage().navigate(properties.getProperty("url"));
-//        browserContext = browser.newContext();
-//        page = browserContext.newPage();
-//        page.navigate(properties.getProperty("url"));
         return getPage();
 
     }
     public Properties initProperties() throws IOException {
-        FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir")+"//src//test//resources//config.properties");
         properties = new Properties();
-        properties.load(fileInputStream);
+        properties.load(PlaywrightFactory.class.getClassLoader().getResourceAsStream("config.properties"));
         return properties;
     }
     public static String takeScreenshot() {

@@ -46,7 +46,7 @@ public class LoginPageTest {
 
 	@Test(priority = 2)
 	public void appLoginTest() {
-		Assert.assertTrue(loginPage.doLogin(Constants.USER_EMAIL, Constants.USER_PASSWORD));
+		Assert.assertTrue(loginPage.doLogin(prop.getProperty(Constants.USER_EMAIL), prop.getProperty(Constants.USER_PASSWORD)));
 	}
 
 	@Test(priority = 3)

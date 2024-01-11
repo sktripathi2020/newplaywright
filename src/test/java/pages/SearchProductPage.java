@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.Properties;
+
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
@@ -7,7 +9,7 @@ import base.Constants;
 
 public class SearchProductPage {// BaseHomePage{
 	protected Page page;
-	public SearchProductPage(Page page) {
+	public SearchProductPage(Page page,Properties prop) {
 
 		this.page = page;
 		Locator acceptCookie = page.locator(Constants.AcceptCookieStr);
@@ -16,8 +18,8 @@ public class SearchProductPage {// BaseHomePage{
         acceptTermsAndCondition.click();
         
         page.locator("//a[contains(.,'Inloggen')]").click();
-        page.getByPlaceholder("Gebruikersnaam (géén e-mailadres)").fill(Constants.USER_EMAIL);
-        page.getByPlaceholder("Wachtwoord").fill(Constants.USER_PASSWORD);
+        page.getByPlaceholder("Gebruikersnaam (géén e-mailadres)").fill(prop.getProperty(Constants.USER_EMAIL));
+        page.getByPlaceholder("Wachtwoord").fill(prop.getProperty(Constants.USER_PASSWORD));
         page.click(Constants.LoginBtn);
 	}
 
